@@ -1,0 +1,50 @@
+---
+title: "Matriz de correlación lab52"
+author: "Luz Yolanda Rivera"
+date: "10/15/2021"
+output: html_document
+---
+########################################################
+#Hecho con gusto por Luz Yolanda Rivera
+#Matriz de correlación
+#######################################################
+# Fuente: https://www.youtube.com/watch?v=rg_PaOKNhxg
+#Ingresa datos
+#install.packages("tidyverse")
+#install.packages("rstatix")
+
+#llamar a la librería a los paquetes
+library(tidyverse)
+```{r}
+library(rstatix)
+```
+
+
+
+#Ingresa datos en Session/ Set working directory/choose directory
+#nombrar base de datos al archivo de la base de datos, pero nos aseguramos que los datos no tengan decimales.
+```{r}
+base_datos <- read.csv("bdcorrela.csv")
+base_datos
+```
+
+#generamos una matriz de correlación
+```{r}
+matriz_correlacion <- cor_mat(base_datos)
+matriz_correlacion
+```
+
+
+#graficamos con circulos
+```{r}
+cor_plot(matriz_correlacion)
+
+```
+
+
+#graficamos con números y solo la parte de arriba
+```{r}
+cor_plot(matriz_correlacion, method = "number", type = "lower")
+```
+
+
